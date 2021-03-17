@@ -1,0 +1,154 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.whole-app {
+  max-width: 600px;
+}
+
+h1,
+h6 {
+  color: #fca3cc;
+}
+
+h6 {
+  padding-top: 5px;
+}
+
+a {
+  color: #1a508b;
+}
+
+#temp-degree {
+  text-decoration: none;
+}
+
+.form-control {
+  border: 0;
+}
+
+.search-functions {
+  display: block;
+  margin: 0 auto;
+}
+
+.search-bar {
+  border: 1px solid #2adaee;
+  display: inline-block;
+  margin: 0 auto;
+}
+
+.form-control {
+  outline: none;
+}
+
+.city-search {
+  display: inline-block;
+  margin-top: 30px auto;
+  padding: 3px;
+}
+
+.btn-search,
+.btn-current {
+  background: transparent;
+  border: none;
+}
+.btn-search {
+  font-size: 15px;
+}
+.btn-current {
+  font-size: 25px;
+
+  position: relative;
+  top: 5px;
+}
+.tempCF {
+  border: 1px solid #2adaee;
+  border-radius: 5px;
+  background: transparent;
+  text-decoration: none;
+}
+
+.current-city-weather {
+  border: 1px solid #bce6eb;
+  margin-top: 10px;
+  margin-right: 5px;
+  position: relative;
+  left: 12px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+.temp-now {
+  font-size: 30px;
+  color: #fca3cc;
+}
+
+#temp-units {
+  font-size: 20px;
+  color: #fca3cc;
+}
+
+.high-now {
+  color: #fbbedf;
+}
+
+.low-now {
+  color: #fbbedf;
+}
+
+.current-date-time {
+  color: #2adaee;
+}
+
+.current-emoji {
+  font-size: 100px;
+}
+
+.current-temps {
+  position: relative;
+  right: 10px;
+}
+
+.list {
+  list-style: none;
+}
+
+.details-list {
+  border: 1px solid #bce6eb;
+  color: #2adaee;
+  line-height: 30px;
+  margin-top: 10px;
+  margin-left: 5px;
+  padding: 80px 40px;
+}
+
+.detail-emoji {
+  margin: 0 20px 0 0;
+}
+
+.five-day {
+  border: 1px solid #bce6eb;
+  margin-top: 10px;
+  text-align: center;
+}
+
+.five-day-dates {
+  color: #2adaee;
+  font-size: 15px;
+}
+
+.five-day-emojis {
+  font-size: 30px;
+}
+
+.five-day-hl {
+  color: #fbbedf;
+}
+
+.nav-bar {
+  border: 1px solid #bce6eb;
+  margin-top: 10px;
+  padding: 5px;
+  text-align: center;
+}

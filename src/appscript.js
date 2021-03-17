@@ -1,0 +1,110 @@
+let h5 = document.querySelector("h5");
+let now = new Date();
+
+let days = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday"
+];
+let currentDay = days[now.getDay()];
+
+let months = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December"
+];
+let currentMonth = months[now.getMonth()];
+let currentDate = now.getDate();
+let currentHours = now.getHours();
+let currentMinutes = now.getMinutes();
+if (currentMinutes < 10) {
+  currentMinutes = `0${currentMinutes}`;
+}
+h5.innerHTML = `${currentDay} ${currentDate} ${currentMonth}, ${currentHours}:${currentMinutes}`;
+
+//working on Week 5 - Challenge 1:
+function search(city) {
+let apiKeys = "fca4e608c9e04226400ad543ae6cd5ca";
+let apiUrls = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKeys}`;
+ axios.get(apiUrls).then(displaySearchWeather);
+}
+
+function displaySearchWeather(response) {
+  document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector("#todays-temp").innerHTML = Math.round(
+    response.data.main.temp
+  );
+  document.querySelector("#todays-high").innerHTML = Math.round(response.data.main.temp_max);
+  document.querySelector("#todays-low").innerHTML = Math.round(response.data.main.temp_min);
+  document.querySelector("#todays-humidity").innerHTML = Math.round(response.data.main.humidity);
+  document.querySelector("#todays-wind").innerHTML = Math.round(response.data.wind.speed);
+}
+
+function handleSumbit(event) {
+  event.preventDefault();
+  let city = document.querySelector("#text-search-input").value;
+  search(city); 
+}
+
+let form = document.querySelector("#search-city-form");
+form.addEventListener("submit", handleSumbit);
+
+//Week 5 - bonus
+function displayLocationTwo(response) {
+  document.querySelector("h1").innerHTML = response.data.name;
+  document.querySelector("#todays-temp").innerHTML = Math.round(response.data.main.temp);
+  document.querySelector("#todays-high").innerHTML = Math.round(response.data.main.temp_max);
+  document.querySelector("#todays-low").innerHTML = Math.round(response.data.main.temp_min);
+  document.querySelector("#todays-humidity").innerHTML = Math.round(response.data.main.humidity);
+  document.querySelector("#todays-wind").innerHTML = Math.round(response.data.wind.speed);
+}
+
+function showPosition(position) {
+  let apiKey = "fca4e608c9e04226400ad543ae6cd5ca";
+  let lat = position.coords.latitude;
+  let lon = position.coords.longitude;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayLocationTwo);
+}
+
+function getCurrentPosition() {
+  navigator.geolocation.getCurrentPosition(showPosition);
+}
+
+let button = document.querySelector("button");
+button.addEventListener("click", getCurrentPosition);
+
+function convertToF(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#todays-temp");
+  let temperature = temperatureElement.innerHTML;
+  temperature = Number(temperature);
+  temperatureElement.innerHTML = Math.round(temperature * 9) / 5 + 32;
+}
+let farenheitLink = document.querySelector("#farenheit-link");
+farenheitLink.addEventListener("click", convertToF);
+
+function convertToC(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#todays-temp");
+  let temperature = temperatureElement.innerHTML;
+  temperature = Number(temperature);
+  temperatureElement.innerHTML = Math.round(temperature - 32) * (5 / 9);
+}
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", convertToC);
+
+search("Melbourne");

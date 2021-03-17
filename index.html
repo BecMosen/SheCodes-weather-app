@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <title>Weather App</title>
+  </head>
+  <body>
+    <div class="container whole-app">
+      <div class="search-functions form-control">
+        <form id="search-city-form">
+      <span class="search-bar">
+      <input type="search"  city-search" name="q"  placeholder="Search for a city..." 
+      autofocus="on" autocomplete="off" id="text-search-input" />
+      </span>
+      <!--<button class="btn-search">🔍</button>-->
+      <input type="submit" value="🔍" class="btn-search" id="city-submit-funct" />
+  
+      <button class="btn-current" id="location-pin">📍</button>
+      </form>
+      </div>
+      <div class="current-location-container">
+       <div class="row" id="grid">
+      <section class="col current-city-weather">
+        <h1>Melbourne</h1>
+        <div class="current-emoji">☀️</div>
+        <div class="current-temps">
+          <ul class="list current-temps">
+            <li><span class="temp-now" id="todays-temp">15</span><span id="temp-units"> <sup><a href="#" id="celcius-link"> °C  </a>| <a href="#" id="farenheit-link">°F </a> </sup></span></li>
+            <li><span class="high-now" id="todays-high">25</span><span class="high-now"> ° </span>/ <span class="low-now" id="todays-low">7</span><span class="low-now"> ° </span></li>
+          </ul>
+        </div>
+         <h5 class="current-date-time" >Tuesday 24 January, 10:00pm</h5>
+      </section>
+      <div class="col weather-details">
+        <ul class="list details-list">
+         <!--- <li><span class="detail-emoji">💧</span>Precipitation: 10%</li> -->
+         <!--- <li><span class="detail-emoji">☔️</span>Rain: 0mm</li> -->
+          <li><span class="detail-emoji">💨</span>Wind: <span id="todays-wind">15</span>km/h</li>
+          <li><span class="detail-emoji">💦</span>Humidity: <span id="todays-humidity">14</span>%</li>
+          <!--- <li><span class="detail-emoji">🕶</span>UV Index: 10</li> -->
+        </ul>
+      </div>
+     </div>
+      </div>
+      <section class="five-day">
+        <h6>5-day Forecast</h6>
+        <div class="row five-day-dates">
+    <div class="col">Sun</div>
+    <div class="col">Mon</div>
+    <div class="col">Tue</div>
+    <div class="col">Wed</div>
+    <div class="col">Thu</div>
+    </div>
+    <div class="row five-day-emojis" >
+    <div class="col">☀️</div>
+    <div class="col">⛅️</div>
+    <div class="col">🌦</div>
+    <div class="col">🌦</div>
+    <div class="col">⛅️</div>
+    </div>
+    <div class="row five-day-hl">
+    <div class="col">35° / 20°</div>
+    <div class="col">31° / 18°</div>
+    <div class="col">27° / 14°</div>
+    <div class="col">29° / 17°</div>
+    <div class="col">29° / 15°</div>
+    </div>
+      </section>
+      <div class="navigation"><!-this div with class=navigation might be surplus to reqs.->
+      <nav class="nav-bar">
+        <div class="row">
+          <div class="col">
+            <a
+              href="https://www.google.com/search?q=sydney+weather&rlz=1C5CHFA_enAU905AU905&oq=sydney+w&aqs=chrome.0.0j69i57j0l3j69i60l3.3757j1j9&sourceid=chrome&ie=UTF-8"
+              target="_blank"
+              >Sydney</a
+            >
+          </div>
+          <div class="col">
+            <a
+              href="https://www.google.com/search?q=new+york+weather&rlz=1C5CHFA_enAU905AU905&oq=new+york+weat&aqs=chrome.0.0j69i57j0l5j69i60.3449j1j9&sourceid=chrome&ie=UTF-8"
+              target="_blank"
+              >NYC</a
+            >
+          </div>
+          <div class="col">
+            <a
+              href="https://www.google.com/search?q=auckland+nz+weather&rlz=1C5CHFA_enAU905AU905&oq=auckland+nz+weather&aqs=chrome.0.0l8.4612j1j4&sourceid=chrome&ie=UTF-8"
+              target="_blank"
+            >
+              Auckland</a
+            >
+          </div>
+          <div class="col">
+            <a
+              href="https://www.google.com/search?q=paris+weather&rlz=1C5CHFA_enAU905AU905&oq=paris+w&aqs=chrome.0.0j69i57j0l5j69i60.2082j1j9&sourceid=chrome&ie=UTF-8"
+              target="_blank"
+            >
+              Paris</a
+            >
+          </div>
+          <div class="col">
+            <a
+              href="https://www.google.com/search?q=london+weather&rlz=1C5CHFA_enAU905AU905&oq=london&aqs=chrome.0.0j46j0l5j0i271.2254j1j9&sourceid=chrome&ie=UTF-8"
+              target="_blank"
+            >
+              London</a
+            >
+          </div>
+              
+          </div>
+        </div>
+        <!div above is for class="row"->
+      </nav>
+    </div>
+    <!-div above is for bootstrap container->
+    <script src="src/appscript.js"></script>
+  </body>
+</html>
+style
