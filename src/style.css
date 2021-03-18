@@ -152,3 +152,8 @@ a {
   padding: 5px;
   text-align: center;
 }
+
+.github-link {
+  text-align: left;
+  color: #1a508b;
+}
