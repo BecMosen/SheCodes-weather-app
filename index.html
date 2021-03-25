@@ -15,16 +15,14 @@
     <title>Weather App</title>
   </head>
   <body>
-    <div class="container whole-app">
+    <div class="container">
       <div class="search-functions form-control">
         <form id="search-city-form">
       <span class="search-bar">
       <input type="search"  city-search" name="q"  placeholder="Search for a city..." 
       autofocus="on" autocomplete="off" id="text-search-input" />
       </span>
-      <!--<button class="btn-search">🔍</button>-->
       <input type="submit" value="🔍" class="btn-search" id="city-submit-funct" />
-  
       <button class="btn-current" id="location-pin">📍</button>
       </form>
       </div>
@@ -32,6 +30,7 @@
        <div class="row" id="grid">
       <section class="col current-city-weather">
         <h1>Melbourne</h1>
+        <h4>Drizzle</h4>
         <div class="current-emoji">☀️</div>
         <div class="current-temps">
           <ul class="list current-temps">
@@ -43,40 +42,36 @@
       </section>
       <div class="col weather-details">
         <ul class="list details-list">
-         <!--- <li><span class="detail-emoji">💧</span>Precipitation: 10%</li> -->
-         <!--- <li><span class="detail-emoji">☔️</span>Rain: 0mm</li> -->
           <li><span class="detail-emoji">💨</span>Wind: <span id="todays-wind">15</span>km/h</li>
           <li><span class="detail-emoji">💦</span>Humidity: <span id="todays-humidity">14</span>%</li>
-          <!--- <li><span class="detail-emoji">🕶</span>UV Index: 10</li> -->
         </ul>
       </div>
      </div>
       </div>
       <section class="five-day">
-        <h6>5-day Forecast</h6>
+        <h6>5-day Forecast (°C)</h6>
         <div class="row five-day-dates">
-    <div class="col">Sun</div>
-    <div class="col">Mon</div>
-    <div class="col">Tue</div>
-    <div class="col">Wed</div>
-    <div class="col">Thu</div>
+    <div class="col" id="day-one">Sun</div>
+    <div class="col" id="day-two">Mon</div>
+    <div class="col" id="day-three">Tue</div>
+    <div class="col" id="day-four">Wed</div>
+    <div class="col" id="day-five">Thu</div>
     </div>
     <div class="row five-day-emojis" >
-    <div class="col">☀️</div>
-    <div class="col">⛅️</div>
-    <div class="col">🌦</div>
-    <div class="col">🌦</div>
-    <div class="col">⛅️</div>
+    <div class="col" id="icon-one">☀️</div>
+    <div class="col" id="icon-two">⛅️</div>
+    <div class="col" id="icon-three">🌦</div>
+    <div class="col" id="icon-four">🌦</div>
+    <div class="col" id="icon-five">⛅️</div>
     </div>
     <div class="row five-day-hl">
-    <div class="col">35° / 20°</div>
-    <div class="col">31° / 18°</div>
-    <div class="col">27° / 14°</div>
-    <div class="col">29° / 17°</div>
-    <div class="col">29° / 15°</div>
+    <div class="col"><span id="one-high">35°</span> / <span id="one-low">20°</span></div>
+    <div class="col"><span id="two-high">35°</span> / <span id="two-low">20°</span></div>
+    <div class="col"><span id="three-high">35°</span> / <span id="three-low">20°</span></div>
+    <div class="col"><span id="four-high">35°</span> / <span id="four-low">20°</span></div>
+    <div class="col"><span id="five-high">35°</span> / <span id="five-low">20°</span></div>
     </div>
       </section>
-      <div class="navigation"><!-this div with class=navigation might be surplus to reqs.->
       <nav class="nav-bar">
         <div class="row">
           <div class="col">
@@ -119,11 +114,10 @@
           </div>
           </div>
         </div>
-        <!div above is for class="row"->
-        <div class="github-link">   <a href="https://github.com/BecMosen/SheCodes-weather-app" target="_blank">Open-source code</a> by Bec Mosen</div>
+        <div id="github-link">   <a href="https://github.com/BecMosen/SheCodes-weather-app" target="_blank">Open-source code</a> by Bec Mosen</div>
       </nav>
     </div>
-    <!-div above is for bootstrap container->
+    <!--div above is for bootstrap container-->
     <script src="src/appscript.js"></script>
   </body>
 </html>
