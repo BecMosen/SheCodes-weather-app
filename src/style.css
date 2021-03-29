@@ -87,6 +87,13 @@ a {
 #temp-units {
   font-size: 20px;
   color: #fca3cc;
+}
+
+#celcius-link {
+  text-decoration: none;
+}
+
+#farenheit-link {
   text-decoration: none;
 }
 
