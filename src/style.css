@@ -87,6 +87,7 @@ a {
 #temp-units {
   font-size: 20px;
   color: #fca3cc;
+  text-decoration: none;
 }
 
 .high-now {
