@@ -46,8 +46,8 @@ function displaySearchWeather(response) {
   document.querySelector("#todays-temp").innerHTML = Math.round(
     response.data.main.temp
   );
-  console.log(response);
-  //document.querySelector("h4").innerHTML = response.
+  //console.log(response);
+  document.querySelector("h4").innerHTML = response.weather[0].description;
   document.querySelector("#todays-high").innerHTML = Math.round(response.data.main.temp_max);
   document.querySelector("#todays-low").innerHTML = Math.round(response.data.main.temp_min);
   document.querySelector("#todays-humidity").innerHTML = Math.round(response.data.main.humidity);
