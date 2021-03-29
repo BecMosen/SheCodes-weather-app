@@ -35,7 +35,6 @@ if (currentMinutes < 10) {
 }
 h5.innerHTML = `${currentDay} ${currentDate} ${currentMonth}, ${currentHours}:${currentMinutes}`;
 
-//working on Week 5 - Challenge 1:
 function search(city) {
 let apiKeys = "fca4e608c9e04226400ad543ae6cd5ca";
 let apiUrls = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&appid=${apiKeys}`;
@@ -47,6 +46,8 @@ function displaySearchWeather(response) {
   document.querySelector("#todays-temp").innerHTML = Math.round(
     response.data.main.temp
   );
+  console.log(response);
+  //document.querySelector("h4").innerHTML = response.
   document.querySelector("#todays-high").innerHTML = Math.round(response.data.main.temp_max);
   document.querySelector("#todays-low").innerHTML = Math.round(response.data.main.temp_min);
   document.querySelector("#todays-humidity").innerHTML = Math.round(response.data.main.humidity);
