@@ -11,6 +11,11 @@ h6 {
   color: #fca3cc;
 }
 
+h4 {
+  color: #2adaee;
+  text-transform: capitalize;
+}
+
 h6 {
   padding-top: 5px;
 }
@@ -109,8 +114,9 @@ a {
   color: #2adaee;
 }
 
-.current-emoji {
-  font-size: 100px;
+#current-icon {
+  height: 100px;
+  width: 100px;
 }
 
 .current-temps {

@@ -46,12 +46,13 @@ function displaySearchWeather(response) {
   document.querySelector("#todays-temp").innerHTML = Math.round(
     response.data.main.temp
   );
-  //console.log(response);
-  document.querySelector("h4").innerHTML = response.weather[0].description;
+  document.querySelector("h4").innerHTML = response.data.weather[0].description;
   document.querySelector("#todays-high").innerHTML = Math.round(response.data.main.temp_max);
   document.querySelector("#todays-low").innerHTML = Math.round(response.data.main.temp_min);
   document.querySelector("#todays-humidity").innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#todays-wind").innerHTML = Math.round(response.data.wind.speed);
+  document.querySelector("#current-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+ 
 }
 
 function handleSumbit(event) {
@@ -63,7 +64,6 @@ function handleSumbit(event) {
 let form = document.querySelector("#search-city-form");
 form.addEventListener("submit", handleSumbit);
 
-//Week 5 - bonus
 function displayLocationTwo(response) {
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#todays-temp").innerHTML = Math.round(response.data.main.temp);
@@ -71,6 +71,7 @@ function displayLocationTwo(response) {
   document.querySelector("#todays-low").innerHTML = Math.round(response.data.main.temp_min);
   document.querySelector("#todays-humidity").innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#todays-wind").innerHTML = Math.round(response.data.wind.speed);
+
 }
 
 function showPosition(position) {
