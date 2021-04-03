@@ -52,6 +52,7 @@ function displaySearchWeather(response) {
   document.querySelector("#todays-humidity").innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#todays-wind").innerHTML = Math.round(response.data.wind.speed);
   document.querySelector("#current-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+  document.querySelector("#current-icon").setAttribute("alt", response.data.weather[0].description);
  
 }
 
