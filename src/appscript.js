@@ -42,10 +42,10 @@ let apiUrls = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=m
 }
 
 function displaySearchWeather(response) {
+    celciusTemperature = response.data.main.temp;
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#todays-temp").innerHTML = Math.round(
-    response.data.main.temp
-  );
+   celciusTemperature);
   document.querySelector("h4").innerHTML = response.data.weather[0].description;
   document.querySelector("#todays-high").innerHTML = Math.round(response.data.main.temp_max);
   document.querySelector("#todays-low").innerHTML = Math.round(response.data.main.temp_min);
@@ -94,8 +94,7 @@ function convertToF(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#todays-temp");
   let temperature = temperatureElement.innerHTML;
-  temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round(temperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(celciusTemperature* 9) / 5 + 32;
 }
 let farenheitLink = document.querySelector("#farenheit-link");
 farenheitLink.addEventListener("click", convertToF);
@@ -109,5 +108,7 @@ function convertToC(event) {
 }
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", convertToC);
+
+let celciusTemperature = null;
 
 search("Melbourne");
