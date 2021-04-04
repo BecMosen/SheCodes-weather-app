@@ -43,6 +43,7 @@ let apiUrls = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=m
 
 function displaySearchWeather(response) {
     celciusTemperature = response.data.main.temp;
+  
   document.querySelector("h1").innerHTML = response.data.name;
   document.querySelector("#todays-temp").innerHTML = Math.round(
    celciusTemperature);
@@ -96,8 +97,8 @@ function convertToF(event) {
   let temperature = temperatureElement.innerHTML;
   temperatureElement.innerHTML = Math.round((celciusTemperature * 9) / 5 + 32);
 }
-let farenheitLink = document.querySelector("#farenheit-link");
-farenheitLink.addEventListener("click", convertToF);
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", convertToF);
 
 function convertToC(event) {
   event.preventDefault();
