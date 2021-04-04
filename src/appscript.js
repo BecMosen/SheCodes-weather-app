@@ -104,7 +104,7 @@ function convertToC(event) {
   let temperatureElement = document.querySelector("#todays-temp");
   let temperature = temperatureElement.innerHTML;
   temperature = Number(temperature);
-  temperatureElement.innerHTML = Math.round(temperature - 32) * (5 / 9);
+  temperatureElement.innerHTML = Math.round((temperature - 32) * (5 / 9));
 }
 let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", convertToC);
