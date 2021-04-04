@@ -94,7 +94,7 @@ function convertToF(event) {
   event.preventDefault();
   let temperatureElement = document.querySelector("#todays-temp");
   let temperature = temperatureElement.innerHTML;
-  temperatureElement.innerHTML = Math.round(celciusTemperature* 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round((celciusTemperature * 9) / 5 + 32);
 }
 let farenheitLink = document.querySelector("#farenheit-link");
 farenheitLink.addEventListener("click", convertToF);
