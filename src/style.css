@@ -147,7 +147,11 @@ a {
   text-align: center;
 }
 
-.five-day-dates {
+.forecast {
+  color: #fbbedf;
+}
+
+/*.five-day-dates {
   color: #2adaee;
   font-size: 15px;
 }
@@ -158,7 +162,7 @@ a {
 
 .five-day-hl {
   color: #fbbedf;
-}
+}*/
 
 .nav-bar {
   border: 1px solid #bce6eb;

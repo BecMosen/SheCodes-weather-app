@@ -41,6 +41,35 @@ let apiUrls = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=m
  axios.get(apiUrls).then(displaySearchWeather);
 }
 
+function displayForecast(){
+    let forcastElement = document.querySelector("#forecast");
+
+   let forecastHTML = `<div class="row">`;
+   let days = ["Thu", "Fri", "Sat", "Sun"];
+   days.forEach(function (day) {
+ forecastHTML = forecastHTML + 
+ `
+   <div class="col-2">
+    <div class="forecast-day">${day}</div>
+    <img
+    src="http://openweathermap.org/img/wn/50d.png"
+    alt=""
+    width="42"
+    />
+    <div class="forecast-temps">
+    <span class="forecast-temp-high">18° / </span>
+    <span class="forecast-temp-low">12°</span>
+    </div>
+    </div>
+    `;
+   });
+       
+
+    forecastHTML = forecastHTML + `</div>`;
+    forcastElement.innerHTML = forecastHTML;
+}
+
+
 function displaySearchWeather(response) {
     celciusTemperature = response.data.main.temp;
   
@@ -73,7 +102,6 @@ function displayLocationTwo(response) {
   document.querySelector("#todays-low").innerHTML = Math.round(response.data.main.temp_min);
   document.querySelector("#todays-humidity").innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#todays-wind").innerHTML = Math.round(response.data.wind.speed);
-
 }
 
 function showPosition(position) {
@@ -111,5 +139,7 @@ let celciusLink = document.querySelector("#celcius-link");
 celciusLink.addEventListener("click", convertToC);
 
 let celciusTemperature = null;
+
+displayForecast();
 
 search("Melbourne");
