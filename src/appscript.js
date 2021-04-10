@@ -41,29 +41,41 @@ let apiUrls = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=m
  axios.get(apiUrls).then(displaySearchWeather);
 }
 
+function formatForecastDay(timestamp) {
+    let date = new Date(timestamp * 1000);
+    let day = date.getDay();
+    let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"]
+
+    return days[day];
+
+}
+
 function displayForecast(response){
-    console.log(response.data.daily);
+    let forecast = response.data.daily;
     let forcastElement = document.querySelector("#forecast");
 
    let forecastHTML = `<div class="row">`;
-   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
-   days.forEach(function (day) {
+  
+   forecast.forEach(function (forecastDay, index) {
+       if (index < 6) {
  forecastHTML = forecastHTML + 
  `
    <div class="col-2">
 
-    <div class="forecast-day" style="color:#fbbedf; font-family: arial, helvetica, sans-serif;"><span style="font-size:18px;">${day}</span></div>
+    <div class="forecast-day" style="color:#fbbedf; font-family: arial, helvetica, sans-serif;"><span style="font-size:18px;">${formatForecastDay(forecastDay.dt)}</span></div>
+  
     <img
-    src="http://openweathermap.org/img/wn/50d.png"
+    src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}.png"
     alt=""
     width="42"
     />
     <div class="forecast-temps">
-    <span style="color:#2adaee;" class="forecast-temp-high">18° / </span>
-    <span style="color:#2adaee;" class="forecast-temp-low">12°</span>
+    <span style="color:#2adaee;" class="forecast-temp-high">${Math.round(forecastDay.temp.max)}° / </span>
+    <span style="color:#2adaee;" class="forecast-temp-low">${Math.round(forecastDay.temp.min)}°</span>
     </div>
     </div>
     `;
+    }
    });
        
 
