@@ -41,7 +41,8 @@ let apiUrls = `https://api.openweathermap.org/data/2.5/weather?q=${city}&units=m
  axios.get(apiUrls).then(displaySearchWeather);
 }
 
-function displayForecast(){
+function displayForecast(response){
+    console.log(response.data.daily);
     let forcastElement = document.querySelector("#forecast");
 
    let forecastHTML = `<div class="row">`;
@@ -70,6 +71,12 @@ function displayForecast(){
     forcastElement.innerHTML = forecastHTML;
 }
 
+function getForecast(coordinates) {
+    let apiKey = "fca4e608c9e04226400ad543ae6cd5ca";
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`
+    axios.get(apiUrl).then(displayForecast);
+
+}
 
 function displaySearchWeather(response) {
     celciusTemperature = response.data.main.temp;
@@ -85,6 +92,7 @@ function displaySearchWeather(response) {
   document.querySelector("#current-icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
   document.querySelector("#current-icon").setAttribute("alt", response.data.weather[0].description);
  
+  getForecast(response.data.coord);
 }
 
 function handleSumbit(event) {
@@ -141,6 +149,5 @@ celciusLink.addEventListener("click", convertToC);
 
 let celciusTemperature = null;
 
-displayForecast();
-
 search("Melbourne");
+
