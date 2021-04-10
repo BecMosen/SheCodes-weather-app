@@ -51,7 +51,7 @@ function displayForecast(){
  `
    <div class="col-2">
 
-    <div class="forecast-day" style="color:#fbbedf; font-family: arial, helvetica, sans-serif;"><b>${day}</b></div>
+    <div class="forecast-day" style="color:#fbbedf; font-family: arial, helvetica, sans-serif;"><span style="font-size:18px;">${day}</span></div>
     <img
     src="http://openweathermap.org/img/wn/50d.png"
     alt=""
