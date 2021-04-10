@@ -45,20 +45,21 @@ function displayForecast(){
     let forcastElement = document.querySelector("#forecast");
 
    let forecastHTML = `<div class="row">`;
-   let days = ["Thu", "Fri", "Sat", "Sun"];
+   let days = ["Thu", "Fri", "Sat", "Sun", "Mon"];
    days.forEach(function (day) {
  forecastHTML = forecastHTML + 
  `
    <div class="col-2">
-    <div class="forecast-day">${day}</div>
+
+    <div class="forecast-day" style="color:#fbbedf; font-family: arial, helvetica, sans-serif;"><b>${day}</b></div>
     <img
     src="http://openweathermap.org/img/wn/50d.png"
     alt=""
     width="42"
     />
     <div class="forecast-temps">
-    <span class="forecast-temp-high">18° / </span>
-    <span class="forecast-temp-low">12°</span>
+    <span style="color:#2adaee;" class="forecast-temp-high">18° / </span>
+    <span style="color:#2adaee;" class="forecast-temp-low">12°</span>
     </div>
     </div>
     `;
