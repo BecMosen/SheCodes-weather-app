@@ -123,6 +123,8 @@ function displayLocationTwo(response) {
   document.querySelector("#todays-low").innerHTML = Math.round(response.data.main.temp_min);
   document.querySelector("#todays-humidity").innerHTML = Math.round(response.data.main.humidity);
   document.querySelector("#todays-wind").innerHTML = Math.round(response.data.wind.speed);
+
+  getForecast(response.data.coord);
 }
 
 function showPosition(position) {
@@ -131,6 +133,8 @@ function showPosition(position) {
   let lon = position.coords.longitude;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&units=metric&appid=${apiKey}`;
   axios.get(apiUrl).then(displayLocationTwo);
+
+  displayForecast();
 }
 
 function getCurrentPosition() {
